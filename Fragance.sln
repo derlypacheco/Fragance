@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fragance", "Fragancy\Fragance.csproj", "{7DB23D8A-C582-4569-A6C1-9C42B819B53F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7DB23D8A-C582-4569-A6C1-9C42B819B53F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DB23D8A-C582-4569-A6C1-9C42B819B53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DB23D8A-C582-4569-A6C1-9C42B819B53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DB23D8A-C582-4569-A6C1-9C42B819B53F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3380B0AB-4452-42D3-931A-0D16777C153A}
+	EndGlobalSection
+EndGlobal
