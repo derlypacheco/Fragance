@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,8 +25,8 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -46,6 +47,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>perfume.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -80,6 +87,24 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmArticulos\FrmAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulos\FrmAddItem.Designer.cs">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmArticulos\FrmListItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmArticulos\FrmListItems.Designer.cs">
+      <DependentUpon>FrmListItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmModalAlert.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModalAlert.Designer.cs">
+      <DependentUpon>FrmModalAlert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Functions.cs" />
     <Compile Include="generalDataSet.cs">
       <DependentUpon>generalDataSet.xsd</DependentUpon>
@@ -91,6 +116,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ventas\FrmListVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmListVentas.Designer.cs">
+      <DependentUpon>FrmListVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas\FrmVender.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ventas\FrmVender.Designer.cs">
+      <DependentUpon>FrmVender.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Clientes\FrmAddCliente.resx">
       <DependentUpon>FrmAddCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +136,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulos\FrmAddItem.resx">
+      <DependentUpon>FrmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmArticulos\FrmListItems.resx">
+      <DependentUpon>FrmListItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModalAlert.resx">
+      <DependentUpon>FrmModalAlert.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -110,6 +156,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Ventas\FrmListVentas.resx">
+      <DependentUpon>FrmListVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ventas\FrmVender.resx">
+      <DependentUpon>FrmVender.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="generalDataSet.xsc">
       <DependentUpon>generalDataSet.xsd</DependentUpon>
     </None>
@@ -142,6 +194,13 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>general.mdf</DependentUpon>
     </Content>
+    <Content Include="perfume.ico" />
+    <None Include="Resources\212ch.PNG" />
+    <None Include="Resources\mas-255-16x.png" />
+    <None Include="Resources\warning-240-128x.png" />
+    <None Include="Resources\success-128x.png" />
+    <None Include="Resources\cancel-red-128x.png" />
+    <None Include="Resources\barsTitle.jpg" />
     <None Include="Resources\notificacion.png" />
     <None Include="Resources\configuracion.png" />
     <None Include="Resources\cuenta-blanco.png" />
@@ -165,5 +224,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

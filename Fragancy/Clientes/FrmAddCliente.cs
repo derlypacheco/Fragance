@@ -37,7 +37,7 @@ namespace Fragancy.Clientes
                 {
                     btnAddCliente.Enabled = false;
                     Connection.ObtenerConexion();
-                    string sql = "insert into Clientes (nombre, celular, telefono, correo, limite_credito, direccion) values ('" + txtNombre.Text + "', '" + txtCelular.Text + "', '" + txtTelefono.Text + "', '" + txtCorreo.Text + "', '" + txtLimite.Text + "', '" + txtDireccion.Text + "');";
+                    string sql = "insert into Clientes (nombre, celular, telefono, correo, limite_credito, direccion) values ('" + txtNombre.Text + "', '" + txtCelular.Text + "', '" + txtTelefono.Text + "', '" + txtCorreo.Text + "', '" + Convert.ToDecimal(txtLimite.Text) + "', '" + txtDireccion.Text + "');";
                     SqlCommand cmd = new SqlCommand(sql, Connection.ObtenerConexion());
                     cmd.ExecuteNonQuery();
                     txtNombre.Text = "";
@@ -47,9 +47,11 @@ namespace Fragancy.Clientes
                     txtCorreo.Text = "";
                     txtCelular.Text = "";
                     btnAddCliente.Enabled = true;
-                } else
+                } 
+                else
                 {
-                    MessageBox.Show("No deje campos vacios", "Campos vacios");
+                    FrmModalAlert modal = new FrmModalAlert("Aviso", "No deje campos vacios en el formulario", "warning");
+                    modal.ShowDialog();
                 }
                 
             }
@@ -57,6 +59,11 @@ namespace Fragancy.Clientes
             {
 
             }
+        }
+
+        private void txtLimite_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

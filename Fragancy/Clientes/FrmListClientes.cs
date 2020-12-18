@@ -50,15 +50,13 @@ namespace Fragancy.Clientes
             }
             catch (Exception)
             {
-                MessageBox.Show("No se pueden cargar los registros de la base de datos");
+                FrmModalAlert modal = new FrmModalAlert("Error", "No se pueden cargar los registros de la base de datos", "error");
+                modal.ShowDialog();
             }
         }
 
         private void FrmListClientes_Load(object sender, EventArgs e)
         {
-            //Connection.ObtenerConexion();
-            //SqlCommand cmd = new SqlCommand("insert into Clientes (nombre, celular, telefono, correo, limite_credito, direccion) values ('Derly', '6561256987', '65635845920', 'mail@correo.com', '2500', 'Direccion donde vives');", Connection.ObtenerConexion());
-            //cmd.ExecuteNonQuery();
             LoadCostumers();
         }
 
@@ -72,12 +70,15 @@ namespace Fragancy.Clientes
         {
             try
             {
+                btnAddCliente.Enabled = false;
                 FrmAddCliente frmAddCliente = new FrmAddCliente();
                 frmAddCliente.ShowDialog();
+                btnAddCliente.Enabled = true;
             }
             catch (Exception)
             {
-
+                FrmModalAlert modal = new FrmModalAlert("Aviso", "Tienes un problema con tu PC, se recomienda reiniciar la aplicación y intentar una vez más", "warning");
+                modal.ShowDialog();
             }
         }
     }

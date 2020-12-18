@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Fragancy.Clientes;
+using Fragancy.FrmArticulos;
+using Fragancy.Ventas;
 
 namespace Fragancy
 {
@@ -71,6 +73,34 @@ namespace Fragancy
         {
             Functions.ReleaseCapture();
             Functions.SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            FrmListItems listItem = new FrmListItems();
+            listItem.ShowDialog();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            // Ventas 
+            FrmListVentas frmVenta = new FrmListVentas();
+            frmVenta.ShowDialog();
+        }
+
+        private void Form1_Validated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseHover(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
