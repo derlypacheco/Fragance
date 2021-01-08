@@ -73,6 +73,7 @@ namespace Fragancy.Ventas
         {
             FrmVender venta = new  FrmVender();
             venta.ShowDialog();
+
             //try
             //{
             //    SqlCommand cmd = new SqlCommand("INSERT INTO dbo.Ventas (costo_credito, cantidad, id_cliente, fecha_venta, fecha_limite, tipo_venta, cant_art, descripcion) VALUES ('458.25', 1, 1, '2020-12-18', '2021-01-18', '1', '1', 'Descripcion')", Connection.ObtenerConexion());
@@ -84,6 +85,7 @@ namespace Fragancy.Ventas
             //    FrmModalAlert aviso = new FrmModalAlert(Convert.ToString(ex));
             //    aviso.ShowDialog();
             //}
+
         }
 
         private void FrmListVentas_Load(object sender, EventArgs e)

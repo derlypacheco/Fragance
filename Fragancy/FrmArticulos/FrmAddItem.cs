@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Fragancy.FrmArticulos
 {
     public partial class FrmAddItem : Form
     {
+        public string RutaImagenFile;
         public FrmAddItem()
         {
             InitializeComponent();
         }
 
-        private void btnAddItem_Click(object sender, EventArgs e)
+        private void AddItem()
         {
             if (txtItem.Text != "" && txtMarca.Text != "" && txtCostoCompra.Text != "" && txtCostoVenta.Text != "" && txtCostoCredito.Text != "" && numericStock.Value >= 0)
             {
@@ -54,27 +56,12 @@ namespace Fragancy.FrmArticulos
             }
         }
 
-        private void txtCostoCompra_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnAddItem_Click_1(object sender, EventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            AddItem();
         }
 
-        private void txtCostoVenta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void txtCostoCredito_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
-
-        private void picClose_Click(object sender, EventArgs e)
+        private void picClose_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -86,10 +73,51 @@ namespace Fragancy.FrmArticulos
             }
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void panel1_MouseDown_1(object sender, MouseEventArgs e)
         {
             Functions.ReleaseCapture();
             Functions.SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void txtCostoCredito_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtCostoVenta_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void txtCostoCompra_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Filter = "Solo imagenes | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+                dialog.Title = "Seleccione la imagen del Artículo";
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    RutaImagenFile = dialog.FileName;
+                    FileInfo infoFile = new FileInfo(RutaImagenFile);
+                    pictureBox1.Image = Image.FromFile(RutaImagenFile);
+                    string destino = @"c:\Fragrance\Imagen\"+infoFile.Name+infoFile.Extension;
+                    File.Copy(RutaImagenFile, destino, true);
+                    
+                    // C:\Fragrance\Imagen
+                }
+            }
+            catch (Exception)
+            {
+                FrmModalAlert alert = new FrmModalAlert("Esta imagen no es valida para ser adjunta");
+                alert.ShowDialog();
+            }
         }
     }
 }

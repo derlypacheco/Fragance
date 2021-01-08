@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassForder\ControlsMaker.cs" />
     <Compile Include="Clientes\FrmAddCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -195,6 +196,10 @@
       <DependentUpon>general.mdf</DependentUpon>
     </Content>
     <Content Include="perfume.ico" />
+    <None Include="Resources\picture.png" />
+    <None Include="Resources\checkbox-empty-35-32x.png" />
+    <None Include="Resources\checkbox-true-35-32x.png" />
+    <None Include="Resources\list-255-128x.png" />
     <None Include="Resources\212ch.PNG" />
     <None Include="Resources\mas-255-16x.png" />
     <None Include="Resources\warning-240-128x.png" />

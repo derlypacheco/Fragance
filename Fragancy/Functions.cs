@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Security.Cryptography;
 
 namespace Fragancy
 {
@@ -21,6 +22,29 @@ namespace Fragancy
         {
             ReleaseCapture();
             SendMessage(frmDrag, 0x112, 0xf012, 0);
+        }
+
+        public static string GetMd5Hash(MD5 md5Hash, string input)
+        {
+            byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+            StringBuilder sBuilder = new StringBuilder();
+            for (int i = 0; i < data.Length; i++)
+            {
+                sBuilder.Append(data[i].ToString("x2"));
+            }
+
+            // Return the hexadecimal string.
+            return sBuilder.ToString();
+        }
+
+        public static string Generar(int longitud)
+        {
+            string hash = string.Empty;
+            using (MD5 md5Hash = MD5.Create())
+            {
+                hash = GetMd5Hash(md5Hash, Guid.NewGuid().ToString());
+            }
+            return hash.Substring(0, longitud);
         }
 
         public string GetCostumer(string ID)
