@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Fragancy.FrmArticulos
 {
@@ -30,7 +31,7 @@ namespace Fragancy.FrmArticulos
             {
                 dataGridViewItems.Rows.Clear();
                 Connection.ObtenerConexion();
-                SqlDataAdapter adapter = new SqlDataAdapter("select * from Articulos order by articulo", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select * from Articulos order by articulo", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)

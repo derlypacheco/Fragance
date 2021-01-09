@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace Fragancy.Ventas
 {
@@ -38,7 +39,7 @@ namespace Fragancy.Ventas
             {
                 Connection.ObtenerConexion();
                 dataGridViewVentas.Rows.Clear();
-                SqlDataAdapter adapter = new SqlDataAdapter("select * from ventas order by fecha_venta desc", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select * from ventas order by fecha_venta desc", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)

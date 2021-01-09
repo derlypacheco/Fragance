@@ -71,6 +71,7 @@ namespace Fragancy.Ventas
             // 
             // flowLayoutPanelItems
             // 
+            this.flowLayoutPanelItems.AutoScroll = true;
             this.flowLayoutPanelItems.BackColor = System.Drawing.Color.Snow;
             this.flowLayoutPanelItems.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelItems.Location = new System.Drawing.Point(250, 73);
@@ -101,7 +102,7 @@ namespace Fragancy.Ventas
             this.lblExistencias.AutoSize = true;
             this.lblExistencias.Location = new System.Drawing.Point(45, 227);
             this.lblExistencias.Name = "lblExistencias";
-            this.lblExistencias.Size = new System.Drawing.Size(188, 29);
+            this.lblExistencias.Size = new System.Drawing.Size(123, 20);
             this.lblExistencias.TabIndex = 6;
             this.lblExistencias.Text = "Solo existencias";
             this.lblExistencias.Click += new System.EventHandler(this.lblExistencias_Click);
@@ -123,7 +124,7 @@ namespace Fragancy.Ventas
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(10, 151);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 29);
+            this.label1.Size = new System.Drawing.Size(56, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Marca";
             // 
@@ -135,7 +136,7 @@ namespace Fragancy.Ventas
             this.comboMarcas.FormattingEnabled = true;
             this.comboMarcas.Location = new System.Drawing.Point(14, 174);
             this.comboMarcas.Name = "comboMarcas";
-            this.comboMarcas.Size = new System.Drawing.Size(226, 37);
+            this.comboMarcas.Size = new System.Drawing.Size(226, 28);
             this.comboMarcas.TabIndex = 3;
             // 
             // label2
@@ -144,7 +145,7 @@ namespace Fragancy.Ventas
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 29);
+            this.label2.Size = new System.Drawing.Size(61, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Cliente";
             // 
@@ -156,7 +157,7 @@ namespace Fragancy.Ventas
             this.comboCostumers.FormattingEnabled = true;
             this.comboCostumers.Location = new System.Drawing.Point(14, 51);
             this.comboCostumers.Name = "comboCostumers";
-            this.comboCostumers.Size = new System.Drawing.Size(226, 37);
+            this.comboCostumers.Size = new System.Drawing.Size(226, 28);
             this.comboCostumers.TabIndex = 1;
             // 
             // panelFooter
@@ -250,7 +251,7 @@ namespace Fragancy.Ventas
             // 
             // FrmVender
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1432, 844);
             this.Controls.Add(this.panelContent);

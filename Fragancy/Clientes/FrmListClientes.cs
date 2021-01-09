@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,7 @@ namespace Fragancy.Clientes
             {
                 dataGridViewClientes.Rows.Clear();
                 Connection.ObtenerConexion();
-                SqlDataAdapter adapter = new SqlDataAdapter("select * from Clientes where activo = '1' ", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select * from Clientes where activo = '1' ", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)

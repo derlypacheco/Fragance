@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using Fragancy.Clientes;
 using Fragancy.FrmArticulos;
 using Fragancy.Ventas;
@@ -30,7 +31,7 @@ namespace Fragancy
         private void button1_Click(object sender, EventArgs e)
         {
             Connection.ObtenerConexion();
-            SqlDataAdapter adapter = new SqlDataAdapter("select * from Clientes ", Connection.ObtenerConexion());
+            MySqlDataAdapter adapter = new MySqlDataAdapter("select * from Clientes ", Connection.ObtenerConexion());
             DataTable dt = new DataTable();
             adapter.Fill(dt);
             MessageBox.Show("Registros totales: " + dt.Rows.Count);
@@ -41,7 +42,7 @@ namespace Fragancy
             try
             {
                 Connection.ObtenerConexion();
-                SqlCommand cmd = new SqlCommand("insert into Clientes (nombre, celular, telefono, correo, limite_credito) values ('Derly', '6561256987', '65635845920', 'mail@correo.com', '2500')", Connection.ObtenerConexion());
+                MySqlCommand cmd = new MySqlCommand("insert into Clientes (nombre, celular, telefono, correo, limite_credito) values ('Derly', '6561256987', '65635845920', 'mail@correo.com', '2500')", Connection.ObtenerConexion());
                 cmd.ExecuteNonQuery();
             }
             catch (Exception)

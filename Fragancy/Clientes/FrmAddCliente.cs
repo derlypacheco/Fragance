@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -38,7 +39,7 @@ namespace Fragancy.Clientes
                     btnAddCliente.Enabled = false;
                     Connection.ObtenerConexion();
                     string sql = "insert into Clientes (nombre, celular, telefono, correo, limite_credito, direccion) values ('" + txtNombre.Text + "', '" + txtCelular.Text + "', '" + txtTelefono.Text + "', '" + txtCorreo.Text + "', '" + Convert.ToDecimal(txtLimite.Text) + "', '" + txtDireccion.Text + "');";
-                    SqlCommand cmd = new SqlCommand(sql, Connection.ObtenerConexion());
+                    MySqlCommand cmd = new MySqlCommand(sql, Connection.ObtenerConexion());
                     cmd.ExecuteNonQuery();
                     txtNombre.Text = "";
                     txtTelefono.Text = "";

@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System.Security.Cryptography;
 
@@ -53,7 +54,7 @@ namespace Fragancy
             try
             {
                 Connection.ObtenerConexion();
-                SqlDataAdapter adapter = new SqlDataAdapter("select nombre from Clientes where id_cliente = '"+ID+"' and activo = '1'", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select nombre from Clientes where id_cliente = '"+ID+"' and activo = '1'", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)

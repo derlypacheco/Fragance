@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
@@ -29,7 +30,7 @@ namespace Fragancy.FrmArticulos
                     Connection.ObtenerConexion();
                     string sql = "insert into Articulos (articulo, marca, modelo, cod_barras, costo_compra, costo_venta, costo_credito, stock, descripcion) values " +
                         "('"+txtItem.Text+"', '"+txtMarca.Text+"', '"+txtModelo.Text+"', '"+txtBarras.Text+"', '"+Convert.ToDecimal(txtCostoCompra.Text)+ "', '"+Convert.ToDecimal(txtCostoVenta.Text)+"', '"+Convert.ToDecimal(txtCostoCredito.Text)+"', '"+numericStock.Value+"', '"+txtDesc.Text+"')";
-                    SqlCommand cmd = new SqlCommand(sql, Connection.ObtenerConexion());
+                    MySqlCommand cmd = new MySqlCommand(sql, Connection.ObtenerConexion());
                     cmd.ExecuteNonQuery();
                     txtItem.Text = "";
                     txtMarca.Text = "";

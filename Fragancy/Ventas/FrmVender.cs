@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Fragancy.ClassForder;
+using MySql.Data.MySqlClient;
 
 namespace Fragancy.Ventas
 {
@@ -32,7 +33,7 @@ namespace Fragancy.Ventas
             try
             {
                 Connection.ObtenerConexion();
-                SqlDataAdapter adapter = new SqlDataAdapter("select id_cliente, nombre from Clientes where activo = '1' order by nombre;", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select id_cliente, nombre from Clientes where activo = '1' order by nombre;", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
@@ -55,7 +56,7 @@ namespace Fragancy.Ventas
             try
             {
                 Connection.ObtenerConexion();
-                SqlDataAdapter adapter = new SqlDataAdapter("select * from Marcas where activo = '1' order by marca;", Connection.ObtenerConexion());
+                MySqlDataAdapter adapter = new MySqlDataAdapter("select * from Marcas where activo = '1' order by marca;", Connection.ObtenerConexion());
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 if (dt.Rows.Count > 0)
@@ -77,7 +78,7 @@ namespace Fragancy.Ventas
             btnVender.Text = "(F5)\nProcesar";
             ListCostumesCombo();
             ListToMark();
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 125; i++)
             {
                 flowLayoutPanelItems.Controls.Add(makeControl.CreateItemShop(Convert.ToString(i)));
             }
